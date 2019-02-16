@@ -25,6 +25,11 @@ export class AppComponent {
       url:'/login',
       icon:'log-in'
 
+    },
+    {
+      title: 'Medical Store',
+      url: '/view-medical',
+      icon: 'list'
     }
   ];
 
