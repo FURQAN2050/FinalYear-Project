@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },  { path: 'view-medical', loadChildren: './view-medical/view-medical.module#ViewMedicalPageModule' }
+
 ];
 
 @NgModule({

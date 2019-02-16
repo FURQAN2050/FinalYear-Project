@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomePage {
   searching: any = false;
   medicalstores=[];
 
-  constructor() {
+  constructor(private nav:NavController) {
     this.initializeItems();
     
   }
@@ -50,7 +50,6 @@ export class HomePage {
     }
   }
   openMedical(storeId){
-    
 
   }
 }
