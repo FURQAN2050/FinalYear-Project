@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="back()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    <ion-title>Medicine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar placeholder="Search Medicine"></ion-searchbar>
+    
+  <ion-list inset=true>
+    <ion-item *ngFor="let store of medicines">
+      <ion-thumbnail slot="start">
+        <img src={{store.image}}>
+      </ion-thumbnail>
+      <h4>{{store.name}}</h4>
+      <p slot="end"> {{store.type | slice:0:20}}</p>
+      <span *ngIf="store.type.length >20 ">...</span>
+      <ion-button slot="end" clear color="primary"item-end (click)="openMedicine(store.id)" >View</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -12,10 +12,12 @@ export class ViewMedicalPage implements OnInit {
   ngOnInit() {
   }
   location(storeId){
-    this.nav.navigateForward('/location');
+    this.nav.navigateBack('/location');
   }
   viewMedicines(storeId){
-    this.nav.navigateForward('/view-medicine');
+    this.nav.navigateBack('/medicine-list');
   }
-
+  back(){
+    this.nav.navigateBack('/home');
+  }
 }

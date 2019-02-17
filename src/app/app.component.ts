@@ -24,6 +24,11 @@ export class AppComponent {
       title: 'Medical Store',
       url: '/view-medical',
       icon: 'list'
+    },
+    {
+      title: 'Medicines',
+      url: '/medicine-list',
+      icon: 'list'
     }
   ];
 
