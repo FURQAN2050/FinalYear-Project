@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
@@ -18,8 +19,11 @@ const routes: Routes = [
   { path: 'view-medical', loadChildren: './view-medical/view-medical.module#ViewMedicalPageModule' },
   { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
   { path: 'medical-store', loadChildren: './medical-store/medical-store.module#MedicalStorePageModule' },
-  { path: 'add-medicine', loadChildren: './add-medicine/add-medicine.module#AddMedicinePageModule' }
+  { path: 'add-medicine', loadChildren: './add-medicine/add-medicine.module#AddMedicinePageModule' },
+  { path: 'medicine-list', loadChildren: './medicine-list/medicine-list.module#MedicineListPageModule' },
+  { path: 'location', loadChildren: './location/location.module#LocationPageModule' }
 ];
+
 
 
 
