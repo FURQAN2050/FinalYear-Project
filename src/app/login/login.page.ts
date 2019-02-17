@@ -13,7 +13,10 @@ export class LoginPage implements OnInit {
     private Router:Router,
     private LoginService:LoginService,
     private AuthService:AuthService
-  ) { }
+  ) 
+  {
+    
+  }
 
   ngOnInit() {
   }
@@ -28,8 +31,13 @@ export class LoginPage implements OnInit {
 }
 
 //log error Function
-logError(err: any) {    
-    console.log('Youser Name or password is incorrect');
+logError(err: any) { 
+     alert('UserName or PAssword is incorrect')
+}
+
+public signUp(){
+  this.Router.navigateByUrl('/signup')
+  console.log('in signup function');
 }
 
 }

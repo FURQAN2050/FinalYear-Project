@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+<ion-menu-button> </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit()" *ngIf="showMode">
+        Edit
+      </ion-button>
+      <ion-button  (click)="save()" *ngIf="editMode">
+          Save
+        </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="loggedIn">Store Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Medical Store </ion-list-header> 
+    <ion-item>
+      <ion-label position="floating">Store Name</ion-label>
+      <ion-input type="text" [readonly]="showMode" name="name"> </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating"> Phone Number</ion-label>
+        <ion-input  type="text" [readonly]="showMode" name="name"> </ion-input>
+    </ion-item>
+    <ion-item>
+          <ion-label position="floating">Cell Number</ion-label>
+          <ion-input  type="text" [readonly]="showMode" name="name"> </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Open Time</ion-label>
+        <ion-input type="time" [readonly]="showMode" name="name"> </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Close Time </ion-label>
+          <ion-input type="time" [readonly]="showMode" name="name"> </ion-input>
+        </ion-item>
+
+  </ion-list>
+
+</ion-content>

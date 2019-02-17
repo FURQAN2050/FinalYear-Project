@@ -15,7 +15,10 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'view-medical', loadChildren: './view-medical/view-medical.module#ViewMedicalPageModule' }
+  { path: 'view-medical', loadChildren: './view-medical/view-medical.module#ViewMedicalPageModule' },
+  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
+  { path: 'medical-store', loadChildren: './medical-store/medical-store.module#MedicalStorePageModule' },
+  { path: 'add-medicine', loadChildren: './add-medicine/add-medicine.module#AddMedicinePageModule' }
 ];
 
 

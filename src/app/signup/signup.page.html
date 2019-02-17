@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-    <ion-title>login</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
     <div class="login-logo">
         <img src="assets/image/appicon.svg" alt="Ionic logo">
       </div>
-    <form  #signinForm="ngForm" (ngSubmit)="SigninUser(signinForm)">
+    <form  #signupForm="ngForm" (ngSubmit)="SignupUser(signupForm)">
         <ion-list>
       <ion-item>
           <ion-label position="stacked">Email</ion-label>
@@ -20,18 +20,17 @@
         <ion-item>
             <ion-label position="stacked">Password</ion-label>
             <ion-input name="password" type="password" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Medical Store</ion-label>
+          <ion-checkbox name="medical" (ionChange)="roleSelected()" [(ngModel)]="role2"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+            <ion-label>Normal User</ion-label>
+            <ion-checkbox name="normal" (ionChange)="roleSelected()" [(ngModel)]="role3"></ion-checkbox>
           </ion-item>
   </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
           <ion-button type="submit"  expand="full">Submit</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="full" (click)="signUp()">Sign Up</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
   
 </form>
 </ion-content>

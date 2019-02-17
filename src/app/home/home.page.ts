@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController} from '@ionic/angular'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomePage {
   searching: any = false;
   medicalstores=[];
 
-  constructor(private nav:NavController) {
+  constructor(private Router :Router) {
     this.initializeItems();
     
   }
@@ -50,6 +50,6 @@ export class HomePage {
     }
   }
   openMedical(storeId){
-
+    this.Router.navigateByUrl('/view-medical')
   }
 }
