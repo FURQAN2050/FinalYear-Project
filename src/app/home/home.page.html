@@ -10,65 +10,16 @@
 </ion-header>
 
 <ion-content>
-
-    <ion-searchbar placeholder="Search Medicine"></ion-searchbar>
-    
-    <ion-list>
+  <ion-searchbar placeholder="Search Medicine"></ion-searchbar>
+  <ion-list>
     <ion-item *ngFor="let store of medicalstores">
-        <ion-thumbnail slot="start">
-          <img src={{store.image}}>
-        </ion-thumbnail>
-        <h3>{{store.name}}</h3>
-        <p> {{store.address | slice:0:20}}</p>
-        <span *ngIf="store.address.length >20 ">...</span>
-          <ion-button clear color="primary"item-end (click)="openMedical(store.id)" >View</ion-button>
+      <ion-thumbnail slot="start">
+        <img src={{store.image}}>
+      </ion-thumbnail>
+      <ion-text>{{store.name}}</ion-text>
+      <!-- <p> {{store.address | slice:0:20}}</p> -->
+      <!-- <span *ngIf="store.address.length >20 ">...</span> -->
+      <ion-button clear color="primary" slot="end" (click)="openMedical(store.id)">View</ion-button>
     </ion-item>
   </ion-list>
-      
-      
-
-    <!-- <ion-list >
-        <ion-item *ngFor="let store of medicalstores" style="background-color: #ecf0f1;">
-          <ion-thumbnail item-start>
-            <img src="{{store.image}}"/>
-            
-          </ion-thumbnail>
-          <h2>{{store.name}}</h2>
-          <p> {{store.address | slice:0:20}}</p>
-          <span *ngIf="store.address.length >20 ">...</span>
-          <button ion-button clear color="dark"item-end (click)="openMedical(store.id)" >View</button>
-        </ion-item>
-    </ion-list>  -->
-    
-    <!-- <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list> -->
 </ion-content>
