@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {NavController} from '@ionic/angular';
 @Component({
   selector: 'app-view-medical',
   templateUrl: './view-medical.page.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewMedicalPage implements OnInit {
 
-  constructor() { }
+  constructor(private nav:NavController) { }
 
   ngOnInit() {
+  }
+  location(storeId){
+    this.nav.navigateForward('/location');
+  }
+  viewMedicines(storeId){
+    this.nav.navigateForward('/view-medicine');
   }
 
 }
