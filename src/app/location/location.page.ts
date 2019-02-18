@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-location',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationPage implements OnInit {
 
-  constructor() { }
+  constructor(private nav:NavController) { }
 
   ngOnInit() {
   }
+  back(){
+    this.nav.navigateBack('/view-medical');
+  }
+  calculateAndDisplayRoute(){}
 
 }
