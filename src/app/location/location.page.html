@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>location</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="find()">{{locate}}</ion-button>
+    </ion-buttons>
+    <ion-title>Location</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+    <div>
+        <ion-list *ngIf="bool">
+          <ion-item style="background-color: #ecf0f1;" >
+            <ion-label floating><ion-icon name="locate"></ion-icon>Your Current Location</ion-label>
+            <ion-input type="text" [(ngModel)]="start"></ion-input>
+          </ion-item>
+          <ion-item style="background-color: #ecf0f1;">
+            <ion-label floating>Destination</ion-label>
+            <ion-input type="text" [(ngModel)]="dest"></ion-input>
+          </ion-item>
+          <!-- <ion-button expand="full" shape="round" color="primary" (click)="calculateAndDisplayRoute()">Get Direction</ion-button> -->
+        </ion-list> 
+      </div>
+    <div #map id="map" style="height:100%">   
+    </div>
 </ion-content>

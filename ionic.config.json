@@ -1,5 +1,7 @@
 {
   "name": "MedicineFinderApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
