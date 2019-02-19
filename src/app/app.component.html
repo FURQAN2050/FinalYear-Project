@@ -49,7 +49,15 @@
                     SignUp
                   </ion-label>
                 </ion-item>
-              </ion-menu-toggle>
+            </ion-menu-toggle>
+            <ion-menu-toggle>
+              <ion-item routerLink="/about-us">
+                <ion-icon slot="start" name="person"></ion-icon>
+                <ion-label>
+                  About Us
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
         </ion-list>
         
         <ion-list *ngIf="loggedIn && (userRole==2)">
