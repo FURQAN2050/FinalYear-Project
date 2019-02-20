@@ -24,4 +24,10 @@ export class MedicalStoreService {
     return this.http.get(api)
     .pipe(map((response: Response) => response.json()))
   }
+  getAllMedicalStore(){
+    var api = this.BaseUrlService.getBase_Url() + '/api/medicalstore';
+    return this.http.get(api)
+    .pipe(map((response: Response) => response.json()))
+
+  }
 }

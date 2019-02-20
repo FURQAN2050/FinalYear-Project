@@ -1,26 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {MedicalStoreService} from '../services/medical/MedicalStore/medical-store.service'
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  ngOnInit() {
+ 
+  }
+  ionViewWillEnter(){
+    console.log('ion view will enter called');
+    this.getAllMedicals();
+  }
+  ionViewDidLoad(){
+    console.log('ion view will didloadcalled');
+    this.getAllMedicals();
+  }
   searchQuery: string = '';
   items: string[];
   searching: any = false;
   medicalstores=[];
 
-  constructor(private Router :Router) {
+  constructor(
+    private Router :Router,
+    private MedicalStoreService:MedicalStoreService,
+    ) {
     this.initializeItems();
     
   }
   initializeItems() {
-    this.items = [
-      'Amsterdam',
-      'Bogota'
-    ];
     this.medicalstores=[
       { id:1,name:'Alameen medical',image:'../../assets/image/pharmacy.png',address:'r-266 pak kausar Town khi'},
       { id:2,name:'Junaid medica',image:'../../assets/image/pharmacy.png',address:'r-266 pak kausar Town khi'},
@@ -49,7 +60,14 @@ export class HomePage {
       })
     }
   }
-  openMedical(storeId){
-    this.Router.navigateByUrl('/view-medical')
+  openMedical(store){
+    console.log('medicalStore',store)
+    this.Router.navigateByUrl('/view-medical/'+store.medicalStoreId)
+  }
+  getAllMedicals(){
+    this.MedicalStoreService.getAllMedicalStore().subscribe(data=>{
+      this.medicalstores=data;
+      console.log('medical stores',this.medicalstores);
+    })
   }
 }
