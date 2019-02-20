@@ -22,7 +22,15 @@ const routes: Routes = [
   { path: 'add-medicine', loadChildren: './add-medicine/add-medicine.module#AddMedicinePageModule' },
   { path: 'medicine-list', loadChildren: './medicine-list/medicine-list.module#MedicineListPageModule' },
   { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
-  { path: 'medical-med-add', loadChildren: './medical-med-add/medical-med-add.module#MedicalMedAddPageModule' }
+  { path: 'medical-med-add', loadChildren: './medical-med-add/medical-med-add.module#MedicalMedAddPageModule' },  { path: 'medical-req-med', loadChildren: './medical-req-med/medical-req-med.module#MedicalReqMedPageModule' },
+  { path: 'medical-med-list', loadChildren: './medical-med-list/medical-med-list.module#MedicalMedListPageModule' },
+  { path: 'medical-med-update', loadChildren: './medical-med-update/medical-med-update.module#MedicalMedUpdatePageModule' },
+  { path: 'super-med-list', loadChildren: './super-med-list/super-med-list.module#SuperMedListPageModule' },
+  { path: 'super-med-update', loadChildren: './super-med-update/super-med-update.module#SuperMedUpdatePageModule' },
+  { path: 'super-med-req-ap', loadChildren: './super-med-req-ap/super-med-req-ap.module#SuperMedReqApPageModule' },
+  { path: 'super-medical-list', loadChildren: './super-medical-list/super-medical-list.module#SuperMedicalListPageModule' },
+  { path: 'enduser-medical-likes', loadChildren: './enduser-medical-likes/enduser-medical-likes.module#EnduserMedicalLikesPageModule' }
+
 ];
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 // import { google } from '@google/maps';
-declare var google : any;
+// declare var google : any;
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
