@@ -14,26 +14,31 @@
           Medicine Finder
         </h3>
       </div>
-    <form  #signupForm="ngForm" (ngSubmit)="SignupUser(signupForm)">
-        <ion-list>
-      <ion-item>
-          <ion-label position="stacked">Email</ion-label>
-          <ion-input name="email" type="email" ngModel></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="stacked">Password</ion-label>
-            <ion-input name="password" type="password" ngModel></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Medical Store</ion-label>
-          <ion-checkbox name="medical" (ionChange)="roleSelected()" [(ngModel)]="role2"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-            <ion-label>Normal User</ion-label>
-            <ion-checkbox name="normal" (ionChange)="roleSelected()" [(ngModel)]="role3"></ion-checkbox>
-          </ion-item>
-  </ion-list>
-          <ion-button type="submit"  expand="full">Submit</ion-button>
-  
-</form>
+      <ion-card>
+        <ion-card-content>
+            <form  #signupForm="ngForm" (ngSubmit)="SignupUser(signupForm)">
+                <ion-list>
+              <ion-item>
+                  <ion-label position="stacked">Email</ion-label>
+                  <ion-input name="email" type="email" ngModel></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="stacked">Password</ion-label>
+                    <ion-input name="password" type="password" ngModel></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Medical Store</ion-label>
+                  <ion-checkbox name="medical" (ionChange)="roleSelected()" [(ngModel)]="role2"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Normal User</ion-label>
+                    <ion-checkbox name="normal" (ionChange)="roleSelected()" [(ngModel)]="role3"></ion-checkbox>
+                  </ion-item>
+          </ion-list>
+                  <ion-button type="submit"  expand="full">Create</ion-button>
+          
+        </form>
+        </ion-card-content>
+      </ion-card>
+   
 </ion-content>
