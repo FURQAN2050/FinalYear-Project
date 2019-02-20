@@ -3,13 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click)="find()">Find</ion-button>
+    </ion-buttons>
     <ion-title>location</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
     <div>
-        <ion-list>
+        <ion-list *ngIf="findPosition">
             <ion-item style="background-color: #ecf0f1;" >
                 <ion-label floating>   <ion-icon name="locate"></ion-icon>Your Current Location</ion-label>
                 <ion-input type="text" [(ngModel)]="start"></ion-input>
