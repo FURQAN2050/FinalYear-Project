@@ -1,14 +1,14 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-// import { google } from '@google/maps';
-// declare var google : any;
+import { google } from '@google/maps';
+declare var google : any;
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
-  @ViewChild("map") mapElement;
+  @ViewChild("map") mapElement: ElementRef;
   map :any;
   start :any;
   end:any;
