@@ -7,19 +7,24 @@
       Home
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search Medicine"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Search Medicine"></ion-searchbar>
+
   <ion-list>
     <ion-item *ngFor="let store of medicalstores">
       <ion-thumbnail slot="start">
-        <img src={{store.image}}>
+        <!-- <img src={{store.image}}> -->
+        <img src="../../assets/image/pharmacy.png">
       </ion-thumbnail>
-      <ion-text>{{store.name}}</ion-text>
-      <!-- <p> {{store.address | slice:0:20}}</p> -->
+      <ion-text><b>{{store.name}}</b></ion-text>
+      <!-- <ion-label>Item</ion-label> -->
+      <!-- <ion-text> {{store.address | slice:0:20}}</ion-text> -->
       <!-- <span *ngIf="store.address.length >20 ">...</span> -->
-      <ion-button clear color="primary" slot="end" (click)="openMedical(store.id)">View</ion-button>
+      <ion-button clear color="primary" slot="end" (click)="openMedical(store)">View</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

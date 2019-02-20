@@ -13,12 +13,12 @@
             <ion-card>
                 <img   width="50"  src="../../assets/image/pharmacy.png"/>
                 <ion-card-header  center>
-                  <h1>  <ion-icon ios="ios-medical" md="md-medical"></ion-icon> AL Ameen Medical  </h1>
+               <ion-icon ios="ios-medical" md="md-medical"></ion-icon> {{medicalStore.name}} 
                 </ion-card-header>
                 <ion-card-content>
-                    <h2><b> <ion-icon ios="ios-call" md="md-call"> Phone: </ion-icon> </b>  03122453993</h2>
+                    <h2><b> <ion-icon ios="ios-call" md="md-call"> Phone: </ion-icon> </b>  {{medicalStore.phoneNumber}}</h2>
                       <br>
-                    <h2><b> <ion-icon ios="ios-home" md="md-home"> Address: </ion-icon> </b> r-266 pak kausar town malir extension colony karachi</h2>
+                    <h2><b> <ion-icon ios="ios-home" md="md-home"> Address: </ion-icon> </b> {{medicalStore.address}}</h2>
                   <!-- Add card content here! -->
                 </ion-card-content>
               </ion-card>

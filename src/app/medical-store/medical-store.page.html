@@ -7,7 +7,7 @@
       <ion-button (click)="edit()" *ngIf="showMode">
         Edit
       </ion-button>
-      <ion-button  (click)="save()" *ngIf="editMode">
+      <ion-button  (click)="saveMedicalStore()" *ngIf="editMode">
           Save
         </ion-button>
     </ion-buttons>
@@ -18,25 +18,30 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Medical Store </ion-list-header> 
+      <!-- <ion-input hidden type="text" [readonly]="showMode" [(ngModel)]="medicalStore._id" name="_id"> </ion-input> -->
     <ion-item>
-      <ion-label position="floating">Store Name</ion-label>
-      <ion-input type="text" [readonly]="showMode" name="name"> </ion-input>
+      <ion-label position="floating">Medical Store</ion-label>
+      <ion-input type="text" [readonly]="showMode" [(ngModel)]="medicalStore.name"  > </ion-input>
     </ion-item>
     <ion-item>
         <ion-label position="floating"> Phone Number</ion-label>
-        <ion-input  type="text" [readonly]="showMode" name="name"> </ion-input>
+        <ion-input  type="text" [readonly]="showMode" [(ngModel)]="medicalStore.phoneNumber"  > </ion-input>
     </ion-item>
     <ion-item>
           <ion-label position="floating">Cell Number</ion-label>
-          <ion-input  type="text" [readonly]="showMode" name="name"> </ion-input>
+          <ion-input  type="text" [readonly]="showMode" [(ngModel)]="medicalStore.cellNumber"  > </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input type="text" [readonly]="showMode" [(ngModel)]="medicalStore.address"  > </ion-input>
     </ion-item>
     <ion-item>
         <ion-label position="floating">Open Time</ion-label>
-        <ion-input type="time" [readonly]="showMode" name="name"> </ion-input>
+        <ion-input type="time" [readonly]="showMode" [(ngModel)]="medicalStore.openTime"  > </ion-input>
       </ion-item>
       <ion-item>
           <ion-label position="floating">Close Time </ion-label>
-          <ion-input type="time" [readonly]="showMode" name="name"> </ion-input>
+          <ion-input type="time" [readonly]="showMode" [(ngModel)]="medicalStore.closedTime"  > </ion-input>
         </ion-item>
 
   </ion-list>

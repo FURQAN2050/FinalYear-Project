@@ -8,30 +8,45 @@
 </ion-header>
 
 <ion-content>
+   <!-- <h1>MEDICINE FINDER</h1> -->
     <div class="login-logo">
-        <img src="assets/image/appicon.svg" alt="Ionic logo">
-      </div>
-    <form  #signinForm="ngForm" (ngSubmit)="SigninUser(signinForm)">
-        <ion-list>
-      <ion-item>
-          <ion-label position="stacked">Email</ion-label>
-          <ion-input name="email" type="email" ngModel></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="stacked">Password</ion-label>
-            <ion-input name="password" type="password" ngModel></ion-input>
-          </ion-item>
-  </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-          <ion-button type="submit"  expand="full">Submit</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="full" (click)="signUp()">Sign Up</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
-</form>
+        <img src="assets/image/logo.png" alt="Ionic logo">
+        <h3>
+            Medicine Finder
+          </h3>
+    </div>
+    <ion-card>
+      <ion-card-header>
+          <ion-card-title>Welcome</ion-card-title>
+
+          <ion-card-subtitle>Please Login</ion-card-subtitle>
+      </ion-card-header>
+     
+      <ion-card-content>
+          <form  #signinForm="ngForm" (ngSubmit)="SigninUser(signinForm)">
+              <ion-list>
+            <ion-item>
+                <ion-label position="stacked">Email</ion-label>
+                <ion-input name="email" type="email" ngModel></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label position="stacked">Password</ion-label>
+                  <ion-input name="password" type="password" ngModel></ion-input>
+                </ion-item>
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-button type="submit"  expand="full">Submit</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button expand="full" (click)="signUp()">Sign Up</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </form>
+      </ion-card-content>
+    </ion-card>
+    
 </ion-content>
