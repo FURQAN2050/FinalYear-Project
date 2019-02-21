@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'medical-store', loadChildren: './medical-store/medical-store.module#MedicalStorePageModule' },
   { path: 'add-medicine', loadChildren: './add-medicine/add-medicine.module#AddMedicinePageModule' },
   { path: 'medicine-list', loadChildren: './medicine-list/medicine-list.module#MedicineListPageModule' },
-  { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
+  { path: 'location/:storeId', loadChildren: './location/location.module#LocationPageModule' },
   { path: 'medical-med-add', loadChildren: './medical-med-add/medical-med-add.module#MedicalMedAddPageModule' },
   { path: 'medical-req-med', loadChildren: './medical-req-med/medical-req-med.module#MedicalReqMedPageModule' },
   { path: 'medical-med-list', loadChildren: './medical-med-list/medical-med-list.module#MedicalMedListPageModule' },

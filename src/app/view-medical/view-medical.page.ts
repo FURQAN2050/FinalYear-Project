@@ -19,9 +19,11 @@ export class ViewMedicalPage implements OnInit {
   ) {
     this.medicalStoreId = this.route.snapshot.paramMap.get('storeId');
     console.log(this.medicalStoreId);
-    this.getMedicalStore();
   }
   ionViewWillEnter(){
+    this.getMedicalStore();
+  }
+  ionViewDidLoad(){
     this.getMedicalStore();
   }
 
@@ -30,7 +32,8 @@ export class ViewMedicalPage implements OnInit {
 
   }
   location(storeId) {
-    this.nav.navigateBack('/location');
+    
+     this.nav.navigateBack('/location/'+this.medicalStoreId);
   }
   viewMedicines(storeId) {
     this.nav.navigateBack('/medicine-list');
@@ -38,7 +41,7 @@ export class ViewMedicalPage implements OnInit {
   back() {
     this.nav.navigateBack('/home');
   }
-  getMedicalStore() {
+  async getMedicalStore() {
     this.MedicalStoreService.getMedicalStore(this.medicalStoreId).subscribe(medicalStore => {
       this.medicalStore = medicalStore[0];
       console.log('medical Store',this.medicalStore);

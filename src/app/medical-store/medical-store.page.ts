@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 //custom services
 import { AuthService } from '../services/authentication/auth.service'
 import {MedicalStoreService} from '../services/medical/MedicalStore/medical-store.service'
@@ -19,6 +21,7 @@ export class MedicalStorePage implements OnInit {
   constructor(
     private AuthService: AuthService,
     private MedicalStoreService:MedicalStoreService,
+    public geolocation: Geolocation
   ) 
   {
     this.showMode = true;
@@ -67,5 +70,19 @@ export class MedicalStorePage implements OnInit {
     console.log('in edit func')
     this.showMode = false;
     this.editMode = true;
+  }
+  
+  setLocation(){
+    console.log('medical store location')
+    this.geolocation.getCurrentPosition()
+      .then(pos => {
+        this.medicalStore.lat = pos.coords.latitude;
+        this.medicalStore.long = pos.coords.longitude;
+        console.log('current postion', this.medicalStore);
+        alert('Current Location Set');
+      }).catch(err => {
+        console.log(err);
+        alert('Location Not Set');
+      })
   }
 }

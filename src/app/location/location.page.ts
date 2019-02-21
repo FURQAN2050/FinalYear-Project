@@ -1,14 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 // import { google } from '@google/maps';
 import { google } from '@google/maps';
 declare var google: any;
+
+import { MedicalStoreService } from '../services/medical/MedicalStore/medical-store.service';
+
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
+  medicalStoreId;
+  medicalStore: any;
+
+
   @ViewChild("map") mapElement;
   map: any;
   start: any;
@@ -18,13 +27,22 @@ export class LocationPage implements OnInit {
   currentlocation: any;
   findPosition:boolean;
   constructor(
-    public geolocation: Geolocation
+    public geolocation: Geolocation,
+    public route: ActivatedRoute,
+    public MedicalStoreService: MedicalStoreService,
+
+
   ) { 
     this.findPosition=false;
+    this.medicalStoreId = this.route.snapshot.paramMap.get('storeId');
+    console.log(this.medicalStoreId);
   }
-  ionViewDidLoad() { }
+  ionViewDidLoad() { 
+    this.getMedicalStore();
+  }
 
   ngOnInit() {
+    this.getMedicalStore();
     this.initMap();
     this.geolocation.getCurrentPosition()
       .then(pos => {
@@ -47,6 +65,7 @@ export class LocationPage implements OnInit {
     })
   }
   calculateAndDisplayRoute() {
+    this.end = new google.maps.LatLng(this.medicalStore.lat, this.medicalStore.long);
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -69,10 +88,16 @@ export class LocationPage implements OnInit {
   }
   
   find(){
-    if(this.findPosition)
-    this.findPosition=false;
-    else
-    this.findPosition=true;
+    // if(this.findPosition)
+    // this.findPosition=false;
+    // else
+    // this.findPosition=true;
 
+  }
+  async getMedicalStore() {
+    this.MedicalStoreService.getMedicalStore(this.medicalStoreId).subscribe(medicalStore => {
+      this.medicalStore = medicalStore[0];
+      console.log('medical Store',this.medicalStore);
+    })
   }
 }
