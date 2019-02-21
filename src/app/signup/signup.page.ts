@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SignupService} from '../services/signup/signup.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -9,7 +10,8 @@ export class SignupPage implements OnInit {
   role2:boolean; //medical store
   role3:boolean; //normal user  
   constructor(
-    private SignupService:SignupService
+    private SignupService:SignupService,
+    private Router:Router
   ) { 
     this.role2=false;
     this.role3=false;
@@ -36,7 +38,8 @@ export class SignupPage implements OnInit {
     }
 
     this.SignupService.UserSignup(user).subscribe(data=>{
-      alert('signup successfull')
+      // alert('signup successfull')
+      this.Router.navigateByUrl('/login');
     },err=>{
       alert("email is already in use");
     })

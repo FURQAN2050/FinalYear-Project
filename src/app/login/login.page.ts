@@ -25,14 +25,14 @@ export class LoginPage implements OnInit {
     this.LoginService.Userlogin(form.value).subscribe(token=>{  
       this.AuthService.saveToken(token);
       var role=this.AuthService.chkRole();
-      alert('user loggedIn');
+      // alert('user loggedIn');
       this.Router.navigateByUrl('/home')
     },err => this.logError(err))
 }
 
 //log error Function
 logError(err: any) { 
-     alert('UserName or PAssword is incorrect')
+     alert('Username or Password is incorrect')
 }
 
 public signUp(){
