@@ -10,7 +10,7 @@ import { MedicalStoreService } from '../services/medical/MedicalStore/medical-st
 })
 export class ViewMedicalPage implements OnInit {
   medicalStoreId
-  medicalStore: any;
+  medicalStore: any={};
   constructor(
     private nav: NavController,
     public route: ActivatedRoute,

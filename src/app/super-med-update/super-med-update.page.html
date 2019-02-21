@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>super-med-update</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="save(medicineForm)" *ngIf="editMode || newMode">
+        Save
+      </ion-button>
+      <ion-button (click)="edit()" *ngIf="showMode">
+          Edit
+        </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Medicine</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <form #medicineForm="ngForm"> 
+    <ion-list>
+        <ion-list-header>
+          Medicine Information
+        </ion-list-header>
+        <ion-item>
+            <ion-label position="floating">Medicine  Name</ion-label>
+            <ion-input type="text" [readonly]="showMode" name="name" [(ngModel)]="medicine.name"> </ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Company  Name</ion-label>
+              <ion-input type="text" [readonly]="showMode" name="company" [(ngModel)]="medicine.company"> </ion-input>
+            </ion-item>
+      </ion-list>
+  </form>
 </ion-content>

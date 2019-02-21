@@ -22,7 +22,7 @@ export class MedicineService {
     return this.http.put(api, medicine)
       .pipe(map((response: Response) => response.json()))
   }
-  getMedicalStore(medicineId){
+  getMedicine(medicineId){
     console.log(medicineId)
     var api = this.BaseUrlService.getBase_Url() + '/api/medicine/'+medicineId;
     return this.http.get(api)
