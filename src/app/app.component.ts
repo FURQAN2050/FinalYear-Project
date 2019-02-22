@@ -53,11 +53,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.AuthService.loggedIn().subscribe(token=>{
-        this.loggedIn=token;
+      this.AuthService.authenticateduser().subscribe(token=>{
+        this.loggedIn=this.AuthService.loggedIn();
         this.userRole=this.AuthService.chkRole();
         console.log('this.role',this.userRole)
       })
+      this.loggedIn=this.AuthService.loggedIn();
+        this.userRole=this.AuthService.chkRole();
       console.log("user loggedIn ",this.loggedIn)
     });
   }

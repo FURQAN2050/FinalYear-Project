@@ -18,7 +18,6 @@ private authSubject = new Subject();
     this.jwt_token=JSON.stringify(this.jwt_token);
     localStorage.setItem('token',this.jwt_token);
     this.authSubject.next(this.jwt_token);
-    
   }
   
   public logOut(){
@@ -27,15 +26,18 @@ private authSubject = new Subject();
     console.log('clear token',localStorage);
   }
   
+  public authenticateduser(){
+     return this.authSubject.asObservable();
+  }
   public loggedIn(){
-    return this.authSubject.asObservable();
-    // this.jwt_token=localStorage.getItem('token');
-    // if(this.jwt_token){
-    //   return true;
-    // }
-    // else{
-    //   return false;
-    // }
+    
+    this.jwt_token=localStorage.getItem('token');
+    if(this.jwt_token){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   public chkRole(){
