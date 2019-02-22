@@ -11,7 +11,7 @@ import {MedicalStoreService} from '../services/medical/MedicalStore/medical-stor
 })
 export class MedicalStorePage implements OnInit {
   loggedIn;
-  UserRole;
+  userRole;
   MedicalStoreId;
 
   editMode: boolean;
@@ -30,12 +30,14 @@ export class MedicalStorePage implements OnInit {
   ionViewWillEnter() {
     console.log('ion view Will Enter')
     this.getMedicalStore();
-    this.AuthService.loggedIn().subscribe(token => {
-      this.loggedIn = token;
-      this.UserRole = this.AuthService.chkRole();
-      console.log(this.UserRole, "medical id ", this.MedicalStoreId);
+    this.AuthService.authenticateduser().subscribe(token=>{
+      this.loggedIn=this.AuthService.loggedIn();
+      this.userRole=this.AuthService.chkRole();
+      console.log('this.role',this.userRole)
     })
-   
+    this.loggedIn=this.AuthService.loggedIn();
+      this.userRole=this.AuthService.chkRole();
+    console.log("user loggedIn ",this.loggedIn)
   }
   ngOnInit() {
    
