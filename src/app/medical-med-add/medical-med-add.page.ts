@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/authentication/auth.service';
 import { MedicineService } from '../services/super/medicine/medicine.service'
-import {MedicalMedicineService } from '../services/medical/medicine/medicine.service'
+import { MedicalMedicineService } from '../services/medical/medicine/medicine.service'
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-medical-med-add',
@@ -16,7 +16,7 @@ export class MedicalMedAddPage implements OnInit {
     private AuthService: AuthService,
     public MedicineService: MedicineService,
     public Router: Router,
-    public MedicalMedicineService:MedicalMedicineService
+    public MedicalMedicineService: MedicalMedicineService
   ) { }
 
   ngOnInit() {
@@ -36,17 +36,17 @@ export class MedicalMedAddPage implements OnInit {
   addMedicine(medicine) {
     var med = {
       medicineId: medicine._id,
-      medicalStoreId:this.medicalStoreId
+      medicalStoreId: this.medicalStoreId
     }
-    this.MedicalMedicineService.postMedicine(med).subscribe(res=>{
+    this.MedicalMedicineService.postMedicine(med).subscribe(res => {
       console.log(res);
-      if(res.alreadyAdded){ //this already added variable is saved on db
+      if (res.alreadyAdded) { //this already added variable is saved on db
         alert(res.alreadyAdded);
       }
-      else{
+      else {
         alert('medicine added succesfully');
       }
-      
+
     })
   }
   filterItems() {
