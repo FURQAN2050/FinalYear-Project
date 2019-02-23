@@ -11,12 +11,12 @@ export class MedicalMedicineService {
     private http: Http,
     private BaseUrlService: BaseUrlService
   ) { }
-  // updateMedicine(medicine) {
-  //   console.log(medicine);
-  //   var api = this.BaseUrlService.getBase_Url() + '/api/medMidicine';
-  //   return this.http.put(api, medicine)
-  //     .pipe(map((response: Response) => response.json()))
-  // }
+  postMedicine(medicine) {
+    console.log(medicine);
+    var api = this.BaseUrlService.getBase_Url() + '/api/medMedicine';
+    return this.http.post(api, medicine)
+      .pipe(map((response: Response) => response.json()))
+  }
   getMedicine(medicineId){
     console.log(medicineId)
     var api = this.BaseUrlService.getBase_Url() + '/api/medMedicine/'+medicineId;

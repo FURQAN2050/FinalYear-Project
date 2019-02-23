@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/authentication/auth.service';
 import { MedicineService } from '../services/super/medicine/medicine.service'
+import {MedicalMedicineService } from '../services/medical/medicine/medicine.service'
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-medical-med-add',
@@ -7,12 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./medical-med-add.page.scss'],
 })
 export class MedicalMedAddPage implements OnInit {
-
+  medicalStoreId;
   medicines;
   searchTerm: string = '';
   constructor(
+    private AuthService: AuthService,
     public MedicineService: MedicineService,
-    public Router: Router
+    public Router: Router,
+    public MedicalMedicineService:MedicalMedicineService
   ) { }
 
   ngOnInit() {
@@ -20,12 +24,23 @@ export class MedicalMedAddPage implements OnInit {
   ionViewWillEnter() {
     console.log('ionViewWillEnter called');
     this.getMedicines();
+    this.medicalStoreId = this.AuthService.chkId();
   }
 
   getMedicines() {
     this.MedicineService.getAllMedicine().subscribe(medicines => {
       this.medicines = medicines;
       console.log(this.medicines);
+    })
+  }
+  addMedicine(medicine) {
+    var med = {
+      medicineId: medicine._id,
+      medicalStoreId:this.medicalStoreId
+    }
+    this.MedicalMedicineService.postMedicine(med).subscribe(res=>{
+      console.log(res);
+      alert('medicine added succesfully');
     })
   }
   filterItems() {
