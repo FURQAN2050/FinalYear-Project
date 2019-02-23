@@ -19,12 +19,12 @@ export class MedicalMedicineService {
   // }
   getMedicine(medicineId){
     console.log(medicineId)
-    var api = this.BaseUrlService.getBase_Url() + '/api/medMidicine/'+medicineId;
+    var api = this.BaseUrlService.getBase_Url() + '/api/medMedicine/'+medicineId;
     return this.http.get(api)
     .pipe(map((response: Response) => response.json()))
   }
-  getAllMedicine(){
-    var api = this.BaseUrlService.getBase_Url() + '/api/medMidicine';
+  getAllMedicine(MedicalStoreId){
+    var api = this.BaseUrlService.getBase_Url() + '/api/medMedicine/'+MedicalStoreId;
     return this.http.get(api)
     .pipe(map((response: Response) => response.json()))
   }
