@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 //cutsom services
+
 import { MedicalStoreService } from '../services/medical/MedicalStore/medical-store.service';
+
 @Component({
   selector: 'app-view-medical',
   templateUrl: './view-medical.page.html',
@@ -12,7 +15,7 @@ export class ViewMedicalPage implements OnInit {
   medicalStoreId
   medicalStore: any={};
   constructor(
-    private nav: NavController,
+    private Router:Router,
     public route: ActivatedRoute,
     public MedicalStoreService: MedicalStoreService,
 
@@ -36,10 +39,7 @@ export class ViewMedicalPage implements OnInit {
      this.nav.navigateBack('/location/'+this.medicalStoreId);
   }
   viewMedicines(storeId) {
-    this.nav.navigateBack('/medicine-list');
-  }
-  back() {
-    this.nav.navigateBack('/home');
+    this.Router.navigateByUrl('/medicine-list'); 
   }
   async getMedicalStore() {
     this.MedicalStoreService.getMedicalStore(this.medicalStoreId).subscribe(medicalStore => {
