@@ -40,7 +40,13 @@ export class MedicalMedAddPage implements OnInit {
     }
     this.MedicalMedicineService.postMedicine(med).subscribe(res=>{
       console.log(res);
-      alert('medicine added succesfully');
+      if(res.alreadyAdded){ //this already added variable is saved on db
+        alert(res.alreadyAdded);
+      }
+      else{
+        alert('medicine added succesfully');
+      }
+      
     })
   }
   filterItems() {
