@@ -31,7 +31,8 @@ const routes: Routes = [
   { path: 'super-med-req-ap', loadChildren: './super-med-req-ap/super-med-req-ap.module#SuperMedReqApPageModule' },
   { path: 'super-medical-list', loadChildren: './super-medical-list/super-medical-list.module#SuperMedicalListPageModule' },
   { path: 'enduser-medical-likes', loadChildren: './enduser-medical-likes/enduser-medical-likes.module#EnduserMedicalLikesPageModule' },
-  { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' }
+  { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },  { path: 'find-medicine-filter', loadChildren: './find-medicine-filter/find-medicine-filter.module#FindMedicineFilterPageModule' }
+
 
 ];
 
