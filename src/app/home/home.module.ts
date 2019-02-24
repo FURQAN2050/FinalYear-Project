@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-
+import {FindMedicineFilterPage}from '../find-medicine-filter/find-medicine-filter.page'
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +18,7 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,FindMedicineFilterPage],
+  entryComponents:[FindMedicineFilterPage]
 })
 export class HomePageModule {}

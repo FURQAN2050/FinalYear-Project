@@ -10,7 +10,7 @@
             </ion-button>
 
           </ion-buttons>
-          <ion-title>Menu</ion-title>
+          <ion-title><ion-icon name="pulse"></ion-icon>Medicine Finder</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -35,7 +35,15 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
+          <!-- <ion-menu-toggle auto-hide="false">
+              <ion-item routerLink="/find-medicine-filter">
+                <ion-icon color="primary" slot="start" name="search"></ion-icon>
+                <ion-label>
+                  Find Medicine 
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> -->
+          <ion-menu-toggle auto-hide="false"  *ngIf="!loggedIn">
               <ion-item routerLink="/login">
                 <ion-icon color="primary" slot="start" name="log-in"></ion-icon>
                 <ion-label>
@@ -76,7 +84,7 @@
           <ion-list-header>SuperUser</ion-list-header>
             <ion-menu-toggle auto-hide="false">
               <ion-item routerLink="/super-med-list">
-                <ion-icon color="primary" slot="start" name="medkit"></ion-icon>
+                <ion-icon color="primary" slot="start" name="list"></ion-icon>
                 <ion-label>
                   Medicine List
                 </ion-label>
@@ -120,7 +128,7 @@
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/medical-med-add">
-              <ion-icon color="primary" slot="start" name="medkit"></ion-icon>
+              <ion-icon color="primary" slot="start" name="add-circle"></ion-icon>
               <ion-label>
                 Add Medicine
               </ion-label>
@@ -136,7 +144,7 @@
           </ion-menu-toggle>
           <ion-menu-toggle>
             <ion-item routerLink="/medical-med-list">
-              <ion-icon color="primary" slot="start" name="medkit"></ion-icon>
+              <ion-icon color="primary" slot="start" name="list"></ion-icon>
               <ion-label>
                  Medicine List
               </ion-label>

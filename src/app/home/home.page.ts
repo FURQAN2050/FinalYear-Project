@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import {MedicalStoreService} from '../services/medical/MedicalStore/medical-store.service'
-
+import {FindMedicineFilterPage} from '../find-medicine-filter/find-medicine-filter.page'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -26,6 +28,8 @@ export class HomePage implements OnInit {
 
   constructor(
     private Router :Router,
+    public loadingController: LoadingController,
+    public modalController: ModalController,
     private MedicalStoreService:MedicalStoreService,
     ) {
     this.initializeItems();
@@ -69,5 +73,19 @@ export class HomePage implements OnInit {
       this.medicalstores=data;
       console.log('medical stores',this.medicalstores);
     })
+  }
+  async OpenFilterModal() {
+    const modal = await this.modalController.create({
+      component: FindMedicineFilterPage,
+    });
+    modal.onDidDismiss().then((d: any) => {
+      if (d.data.contact) {
+        // this.currentAd.tenant = d.data.contact;
+      }
+      else {
+        // this.currentAd.tenant = null;
+      }
+    });
+    return await modal.present();
   }
 }
