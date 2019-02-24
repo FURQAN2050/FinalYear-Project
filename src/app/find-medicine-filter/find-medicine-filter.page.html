@@ -10,7 +10,7 @@
 <ion-content>
     <ion-list>
         <ion-list-header>Medicine list</ion-list-header>
-        <ion-item *ngFor="let medicine of medicines" (click)="updateMedicine(medicine)">
+        <ion-item *ngFor="let medicine of medicines" (click)="findMedicalStore(medicine)">
           <ion-label>{{medicine.name}}</ion-label>
         </ion-item>
       </ion-list>

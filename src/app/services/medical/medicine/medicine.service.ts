@@ -31,5 +31,12 @@ export class MedicalMedicineService {
   deleteMedicine(){
     
   }
+  getmedicalStoresFromMedicinesId(medicineId){
+    var medicalStoreId=0;
+    var api = this.BaseUrlService.getBase_Url() + '/api/medMedicine/'+medicalStoreId+'/'+medicineId;
+    return this.http.get(api)
+    .pipe(map((response: Response) => response.json()))
+
+  }
 
 }

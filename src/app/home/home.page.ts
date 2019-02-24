@@ -79,12 +79,10 @@ export class HomePage implements OnInit {
       component: FindMedicineFilterPage,
     });
     modal.onDidDismiss().then((d: any) => {
-      if (d.data.contact) {
-        // this.currentAd.tenant = d.data.contact;
+      if (d.data.medicalStores) {
+        this.medicalstores = d.data.medicalStores;
       }
-      else {
-        // this.currentAd.tenant = null;
-      }
+      
     });
     return await modal.present();
   }
