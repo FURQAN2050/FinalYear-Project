@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Find Medicine</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+      <ion-searchbar  [(ngModel)]="searchTerm" (ionChange)="searchMedicine()" ></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>Medicine list</ion-list-header>
+        <ion-item *ngFor="let medicine of medicines" (click)="updateMedicine(medicine)">
+          <ion-label>{{medicine.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+</ion-content>
