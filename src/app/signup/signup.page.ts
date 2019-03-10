@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SignupService} from '../services/signup/signup.service'
 import { Router } from '@angular/router';
+import {SignupapprovalService} from '../services/super/signupapproval/signupapproval.service'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -8,13 +9,20 @@ import { Router } from '@angular/router';
 })
 export class SignupPage implements OnInit {
   role2:boolean; //medical store
-  role3:boolean; //normal user  
+  role3:boolean; //normal user
+  email:any='';
+  password:any='';  
   constructor(
     private SignupService:SignupService,
-    private Router:Router
+    private Router:Router,
+    public SignupapprovalService:SignupapprovalService,
   ) { 
+    
+  }
+  ionViewWillEnter(){
     this.role2=false;
     this.role3=false;
+
   }
 
   ngOnInit() {
@@ -28,6 +36,21 @@ export class SignupPage implements OnInit {
         "password":form.value.password,
         "role":2
       }
+      this.SignupapprovalService.chkEmailExist(user).subscribe(res=>{
+        console.log(res)
+        if(res.length>0){
+          console.log('in if condition');
+          alert('email already exist');
+        }
+        else{
+          this.SignupapprovalService.postApproval(user).subscribe(results=>{
+            alert('request compeleted successfully');
+            this.Router.navigateByUrl('/home');
+          },err=>{
+            console.log(err);
+          })
+        }
+      })
     }
     else{
        user={
@@ -35,14 +58,14 @@ export class SignupPage implements OnInit {
         "password":form.value.password,
         "role":3
       }
+      this.SignupService.UserSignup(user).subscribe(data=>{
+        this.Router.navigateByUrl('/login');
+      },err=>{
+        alert("email is already in use");
+      })
     }
 
-    this.SignupService.UserSignup(user).subscribe(data=>{
-      // alert('signup successfull')
-      this.Router.navigateByUrl('/login');
-    },err=>{
-      alert("email is already in use");
-    })
+    
     
 
   }

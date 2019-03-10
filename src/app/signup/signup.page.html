@@ -20,11 +20,11 @@
                 <ion-list>
               <ion-item>
                   <ion-label position="stacked">Email</ion-label>
-                  <ion-input name="email" type="email" ngModel></ion-input>
+                  <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label position="stacked">Password</ion-label>
-                    <ion-input name="password" type="password" ngModel></ion-input>
+                    <ion-input name="password" type="password" [(ngModel)]="password"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label>Medical Store</ion-label>
@@ -35,7 +35,7 @@
                     <ion-checkbox name="normal" (ionChange)="roleSelected()" [(ngModel)]="role3"></ion-checkbox>
                   </ion-item>
           </ion-list>
-                  <ion-button type="submit"  expand="full">Create</ion-button>
+                  <ion-button  [disabled]="!email || !password && (!role2 || !role3)" type="submit"  expand="full">Create</ion-button>
           
         </form>
         </ion-card-content>
