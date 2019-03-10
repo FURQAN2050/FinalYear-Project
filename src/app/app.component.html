@@ -3,18 +3,20 @@
     <ion-menu>
       <ion-header>
         <ion-toolbar>
-            <!-- Normal user -->
+          <!-- Normal user -->
           <ion-buttons slot="end">
             <ion-button color="primary" *ngIf="loggedIn" (click)="logOut()">
-                <ion-icon name="arrow-dropleft-circle"></ion-icon>Logout
+              <ion-icon name="arrow-dropleft-circle"></ion-icon>Logout
             </ion-button>
 
           </ion-buttons>
-          <ion-title><ion-icon name="pulse"></ion-icon>Medicine Finder</ion-title>
+          <ion-title>
+            <ion-icon name="pulse"></ion-icon>Medicine Finder
+          </ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
-       
+
         <!-- <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
@@ -43,32 +45,32 @@
                 </ion-label>
               </ion-item>
             </ion-menu-toggle> -->
-          <ion-menu-toggle auto-hide="false"  *ngIf="!loggedIn">
-              <ion-item routerLink="/login">
-                <ion-icon color="primary" slot="start" name="log-in"></ion-icon>
-                <ion-label>
-                  Login
-                </ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false">
-                <ion-item routerLink="/signup">
-                  <ion-icon color="primary" slot="start" name="person"></ion-icon>
-                  <ion-label>
-                    SignUp
-                  </ion-label>
-                </ion-item>
-            </ion-menu-toggle>
-            <ion-menu-toggle>
-              <ion-item routerLink="/about-us">
-                <ion-icon color="primary" slot="start" name="book"></ion-icon>
-                <ion-label>
-                  About Us
-                </ion-label>
-              </ion-item>
-            </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false" *ngIf="!loggedIn">
+            <ion-item routerLink="/login">
+              <ion-icon color="primary" slot="start" name="log-in"></ion-icon>
+              <ion-label>
+                Login
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/signup">
+              <ion-icon color="primary" slot="start" name="person"></ion-icon>
+              <ion-label>
+                SignUp
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item routerLink="/about-us">
+              <ion-icon color="primary" slot="start" name="book"></ion-icon>
+              <ion-label>
+                About Us
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
-        
+
         <!-- <ion-list *ngIf="loggedIn && (userRole==1)" >
             <ion-list-header>User</ion-list-header>
             <ion-menu-toggle auto-hide="false">
@@ -80,25 +82,25 @@
               </ion-item>
             </ion-menu-toggle>
         </ion-list> -->
-        <ion-list *ngIf="loggedIn && (userRole==1)" >
+        <ion-list *ngIf="loggedIn && (userRole==1)">
           <ion-list-header>SuperUser</ion-list-header>
-            <ion-menu-toggle auto-hide="false">
-              <ion-item routerLink="/super-med-list">
-                <ion-icon color="primary" slot="start" name="list"></ion-icon>
-                <ion-label>
-                  Medicine List
-                </ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false">
-              <ion-item routerLink="/super-med-req-ap">
-                <ion-icon color="primary" slot="start" name="git-pull-request"></ion-icon>
-                <ion-label>
-                  Request Approval
-                </ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-            <!-- <ion-menu-toggle auto-hide="false">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/super-med-list">
+              <ion-icon color="primary" slot="start" name="list"></ion-icon>
+              <ion-label>
+                Medicine List
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/super-med-req-ap">
+              <ion-icon color="primary" slot="start" name="git-pull-request"></ion-icon>
+              <ion-label>
+                Request Approval
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <!-- <ion-menu-toggle auto-hide="false">
               <ion-item routerLink="/super-med-update">
                 <ion-icon color="primary" slot="start" name="create"></ion-icon>
                 <ion-label>
@@ -106,14 +108,14 @@
                 </ion-label>
               </ion-item>
             </ion-menu-toggle> -->
-            <ion-menu-toggle auto-hide="false">
-              <ion-item routerLink="/super-medical-list">
-                <ion-icon color="primary" slot="start" name="clipboard"></ion-icon>
-                <ion-label>
-                  Medical List
-                </ion-label>
-              </ion-item>
-            </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/super-medical-list">
+              <ion-icon color="primary" slot="start" name="clipboard"></ion-icon>
+              <ion-label>
+                Medical List
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
 
         <ion-list *ngIf="loggedIn && (userRole==2)">
@@ -146,21 +148,11 @@
             <ion-item routerLink="/medical-med-list">
               <ion-icon color="primary" slot="start" name="list"></ion-icon>
               <ion-label>
-                 Medicine List
+                Medicine List
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
-
-
-
-
-
-
-
-
-
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
