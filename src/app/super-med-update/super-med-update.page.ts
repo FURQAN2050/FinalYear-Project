@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MedicineService} from '../services/super/medicine/medicine.service'
+import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 @Component({
   selector: 'app-super-med-update',
   templateUrl: './super-med-update.page.html',
@@ -12,9 +13,11 @@ export class SuperMedUpdatePage implements OnInit {
   showMode:boolean;
   editMode:boolean;
   newMode:boolean; 
+  words:any=[];
   constructor(
     public route:ActivatedRoute,
     private MedicineService:MedicineService,
+    private speechRecognition: SpeechRecognition,
 
   ) { 
     this.showMode=true;
@@ -61,7 +64,7 @@ export class SuperMedUpdatePage implements OnInit {
     }
     else if(this.editMode){
       this.MedicineService.updateMedicine(this.medicine).subscribe(result=>{
-        console.log('update MEdicine',result);
+        console.log('update Medicine',result);
         this.showMode=true;
         this.editMode=false;
         this.newMode=false;  
@@ -74,9 +77,48 @@ export class SuperMedUpdatePage implements OnInit {
       // this.editMode=false;
       // this.newMode=false;
     }
+  }
 
+  getPermission(){
+    // Check permission
+this.speechRecognition.hasPermission()
+.then((hasPermission: boolean) =>  {
+  if(!hasPermission){
+    this.speechRecognition.requestPermission();
+    alert('request granted.');
+  }
 
+})
 
+// // Request permissions
+// this.speechRecognition.requestPermission()
+// .then(
+//   () => console.log('Granted'),
+//   () => console.log('Denied')
+// )
+
+  }
+  startListening() {
+    this.speechRecognition.hasPermission()
+      .then((hasPermission: boolean) => {
+        if (!hasPermission) {
+          this.speechRecognition.requestPermission();
+          alert('request granted.');
+        }
+      })
+    // Check feature available
+    this.speechRecognition.isRecognitionAvailable()
+      .then((available: boolean) => console.log(available))
+    // Start the recognition process
+    this.speechRecognition.startListening()
+      .subscribe(
+        (matches: string[]) => {
+          console.log(matches)
+          this.words = matches;
+          this.medicine.name=this.words[0]
+        },
+        (onerror) => console.log('error:', onerror)
+      )
   }
 
 }

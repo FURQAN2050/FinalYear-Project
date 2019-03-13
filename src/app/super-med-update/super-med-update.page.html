@@ -31,4 +31,10 @@
             </ion-item>
       </ion-list>
   </form>
+  <!-- <ion-button  (click)="getPermission()">Get Permission</ion-button> -->
+  <ion-button  (click)="startListening()">Start Listening</ion-button>
+  <!-- <ion-button  (click)="StopListening()">Stop Listening</ion-button> -->
+<p *ngFor="let word of words">
+  {{word}}
+</p>
 </ion-content>
