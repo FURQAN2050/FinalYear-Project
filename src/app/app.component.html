@@ -4,12 +4,12 @@
       <ion-header>
         <ion-toolbar>
           <!-- Normal user -->
-          <ion-buttons slot="end">
+          <!-- <ion-buttons slot="end">
             <ion-button color="primary" *ngIf="loggedIn" (click)="logOut()">
               <ion-icon name="arrow-dropleft-circle"></ion-icon>Logout
-            </ion-button>
+            </ion-button> -->
 
-          </ion-buttons>
+          <!-- </ion-buttons> -->
           <ion-title>
             <img src="\assets\image\Title.PNG">
           </ion-title>
@@ -151,6 +151,22 @@
                 Medicine List
               </ion-label>
             </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list *ngIf="loggedIn">
+            <ion-list-header>Logout User</ion-list-header>
+          <ion-menu-toggle>
+            <ion-item (click)="logOut()">
+              <ion-icon color="primary" slot="start" name="arrow-dropleft-circle"></ion-icon>
+              <ion-label>
+                  Logout
+                </ion-label>
+            </ion-item>
+            <!-- <ion-buttons slot="end">
+            <ion-button color="primary" *ngIf="loggedIn" (click)="logOut()">
+              <ion-icon name="arrow-dropleft-circle"></ion-icon>Logout
+            </ion-button> -->
+
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
