@@ -10,6 +10,7 @@ import { Geolocation } from "@ionic-native/geolocation/ngx";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { FindMedicineFilterPageModule } from './find-medicine-filter/find-medicine-filter.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,6 +20,7 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    FindMedicineFilterPageModule
 
   ],
   providers: [

@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import {FindMedicineFilterPage}from '../find-medicine-filter/find-medicine-filter.page'
+// import {FindMedicineFilterPage}from '../find-medicine-filter/find-medicine-filter.page'
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +18,6 @@ import {FindMedicineFilterPage}from '../find-medicine-filter/find-medicine-filte
       }
     ])
   ],
-  declarations: [HomePage,FindMedicineFilterPage],
-  entryComponents:[FindMedicineFilterPage]
+  declarations: [HomePage],
 })
 export class HomePageModule {}
