@@ -4,6 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let medicalStore of medicalStores">
+      <ion-label>
+        <h3>{{medicalStore.name |uppercase}}</h3>
+        <h3 *ngIf="medicalStore.cellNumber"><ion-icon name="call"></ion-icon> {{medicalStore.cellNumber}}</h3>
+        <ion-butto>Remove</ion-button>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
 
 </ion-content>
